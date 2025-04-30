@@ -1,0 +1,44 @@
+# Build stage
+FROM openjdk:11-jdk AS build
+
+WORKDIR /build
+
+# Download SBT launcher
+RUN curl -L -o sbt-launch.jar https://repo1.maven.org/maven2/org/scala-sbt/sbt-launch/1.5.5/sbt-launch.jar
+
+# Copy SBT script
+COPY sbt /usr/local/bin/sbt
+RUN chmod +x /usr/local/bin/sbt
+
+# Copy project files
+COPY . .
+
+# Run SBT assembly
+RUN sbt assembly
+
+# Final stage
+FROM bitnami/spark:3.2.0
+
+USER root
+
+# Install required packages
+RUN install_packages wget ca-certificates
+
+# Download and install Kafka connector for Spark
+RUN wget https://repo1.maven.org/maven2/org/apache/spark/spark-sql-kafka-0-10_2.12/3.2.0/spark-sql-kafka-0-10_2.12-3.2.0.jar -P /opt/bitnami/spark/jars/
+
+# Download and install Kafka client
+RUN wget https://repo1.maven.org/maven2/org/apache/kafka/kafka-clients/2.8.0/kafka-clients-2.8.0.jar -P /opt/bitnami/spark/jars/
+
+# Download and install Cassandra connector for Spark
+RUN wget https://repo1.maven.org/maven2/com/datastax/spark/spark-cassandra-connector_2.12/3.1.0/spark-cassandra-connector_2.12-3.1.0.jar -P /opt/bitnami/spark/jars/
+
+# Copy your application JAR from the build stage
+COPY --from=build /build/target/scala-2.12/MovieDataProcessor-assembly-0.1.0-SNAPSHOT.jar /opt/bitnami/spark/work-dir/app.jar
+
+WORKDIR /opt/bitnami/spark/work-dir
+
+CMD ["/opt/bitnami/spark/bin/spark-submit", \
+     "--class", "SparkKafkaCassandra", \
+     "--packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.2.0,com.datastax.spark:spark-cassandra-connector_2.12:3.1.0,org.apache.kafka:kafka-clients:2.8.0", \
+     "app.jar"]

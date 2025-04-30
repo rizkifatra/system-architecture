@@ -1,0 +1,21 @@
+ThisBuild / scalaVersion := "2.12.15"
+ThisBuild / version := "0.1.0-SNAPSHOT"
+
+lazy val root = (project in file("."))
+  .settings(
+    name := "MovieDataProcessor",
+    libraryDependencies ++= Seq(
+      "org.apache.spark" %% "spark-core" % "3.2.0" % "provided",
+      "org.apache.spark" %% "spark-sql" % "3.2.0" % "provided",
+      "org.apache.spark" %% "spark-streaming" % "3.2.0" % "provided",
+      "org.apache.spark" %% "spark-sql-kafka-0-10" % "3.2.0",
+      "org.apache.spark" %% "spark-streaming-kafka-0-10" % "3.2.0",
+      "com.datastax.spark" %% "spark-cassandra-connector" % "3.1.0",
+      "org.apache.kafka" % "kafka-clients" % "2.8.0",
+      "com.github.jnr" % "jnr-posix" % "3.1.15" // Add this line
+    ),
+    assemblyMergeStrategy in assembly := {
+      case PathList("META-INF", xs @ _*) => MergeStrategy.discard
+      case x => MergeStrategy.first
+    }
+  )

@@ -1,0 +1,46 @@
+# Build stage
+FROM hseeberger/scala-sbt:11.0.11_1.5.5_2.13.6 AS build
+
+WORKDIR /build
+
+# Copy project files
+COPY . .
+
+# Set SBT_OPTS to avoid "URI scheme is not file" error
+ENV SBT_OPTS="-Dsbt.global.base=/build/sbt-global -Dsbt.ivy.home=/build/ivy2 -Divy.home=/build/ivy2"
+
+# Debug: Print SBT version
+RUN sbt sbtVersion
+
+# Debug: List contents of current directory
+RUN ls -la
+
+# Run SBT assembly with verbose output
+RUN sbt -v clean assembly
+
+# Final stage
+FROM bitnami/spark:3.2.0
+
+USER root
+
+# Install required packages
+RUN install_packages wget ca-certificates
+
+# Download and install Kafka connector for Spark
+RUN wget https://repo1.maven.org/maven2/org/apache/spark/spark-sql-kafka-0-10_2.12/3.2.0/spark-sql-kafka-0-10_2.12-3.2.0.jar -P /opt/bitnami/spark/jars/
+
+# Download and install Kafka client
+RUN wget https://repo1.maven.org/maven2/org/apache/kafka/kafka-clients/2.8.0/kafka-clients-2.8.0.jar -P /opt/bitnami/spark/jars/
+
+# Download and install Cassandra connector for Spark
+RUN wget https://repo1.maven.org/maven2/com/datastax/spark/spark-cassandra-connector_2.12/3.1.0/spark-cassandra-connector_2.12-3.1.0.jar -P /opt/bitnami/spark/jars/
+
+# Copy your application JAR from the build stage
+COPY --from=build /build/target/scala-2.12/MovieDataProcessor-assembly-0.1.0-SNAPSHOT.jar /opt/bitnami/spark/work-dir/app.jar
+
+WORKDIR /opt/bitnami/spark/work-dir
+
+CMD ["/opt/bitnami/spark/bin/spark-submit", \
+     "--class", "SparkKafkaCassandra", \
+     "--packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.2.0,com.datastax.spark:spark-cassandra-connector_2.12:3.1.0,org.apache.kafka:kafka-clients:2.8.0", \
+     "app.jar"]

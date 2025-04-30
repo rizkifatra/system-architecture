@@ -1,0 +1,16 @@
+FROM bitnami/spark:3.2.0
+
+USER root
+
+# Install required packages
+RUN install_packages wget ca-certificates
+
+WORKDIR /opt/bitnami/spark/work-dir
+
+# Copy your pre-built application JAR
+COPY target/scala-2.12/MovieDataProcessor-assembly-0.1.0-SNAPSHOT.jar /opt/bitnami/spark/work-dir/app.jar
+
+CMD ["/opt/bitnami/spark/bin/spark-submit", \
+     "--class", "SparkKafkaCassandra", \
+     "--packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.2.0,com.datastax.spark:spark-cassandra-connector_2.12:3.1.0,org.apache.kafka:kafka-clients:2.8.0", \
+     "app.jar"]

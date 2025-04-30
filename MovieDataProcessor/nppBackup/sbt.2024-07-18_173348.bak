@@ -1,0 +1,2 @@
+#!/bin/bash
+java $SBT_OPTS -jar /usr/local/bin/sbt-launch.jar "$@"

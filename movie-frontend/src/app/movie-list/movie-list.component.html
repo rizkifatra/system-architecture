@@ -1,0 +1,23 @@
+<!-- movie-list.component.html -->
+<h2>Movie List</h2>
+
+<div class="search-container">
+  <input
+    [(ngModel)]="searchTerm"
+    placeholder="Search Movies"
+    class="search-input"
+  />
+  <select [(ngModel)]="searchType" class="search-select">
+    <option value="title">Title</option>
+    <option value="id">ID</option>
+    <option value="genre">Genre</option>
+  </select>
+  <button (click)="searchMovies()" class="search-button">Search</button>
+</div>
+
+<ul class="movie-list">
+  <li *ngFor="let movie of movies" class="movie-item">
+    {{ movie.title }} ({{ movie.releaseYear }}) - ID: {{ movie.id }} - Genre:
+    {{ movie.genres }} - Rating: {{ movie.imdbRating }}
+  </li>
+</ul>

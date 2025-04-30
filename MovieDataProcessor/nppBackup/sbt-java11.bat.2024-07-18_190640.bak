@@ -1,0 +1,3 @@
+@echo off
+set SCRIPT_DIR=%~dp0
+"C:\sbt-1.5.5\bin\sbt.bat" %*

@@ -1,0 +1,3 @@
+#!/bin/sh
+SBT_OPTS="-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled -Dsbt.ivy.home=/build/.ivy2 -Dsbt.boot.directory=/build/.sbt-boot"
+java $SBT_OPTS -jar `dirname $0`/sbt-launch.jar "$@"

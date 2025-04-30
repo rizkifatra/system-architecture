@@ -1,0 +1,113 @@
+services:
+  angular-app:
+    build:
+      context: ./movie-frontend/
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - spring-boot-app
+    networks:
+      - app-network
+
+  spring-boot-app:
+    build:
+      context: ./Spring Boot/Spring Boot/movieapi
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./Spring Boot/Spring Boot/movieapi/src/main/resources/data.sql:/app/data.sql
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:h2:mem:testdb
+      - SPRING_DATASOURCE_DRIVER_CLASS_NAME=org.h2.Driver
+      - SPRING_SQL_INIT_DATA_LOCATIONS=file:/app/data.sql
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=create-drop
+      - SPRING_SQL_INIT_MODE=always
+    depends_on:
+      - mysql
+    networks:
+      - app-network
+
+  telegrambot:
+    build:
+      context: ./telegramBot/
+      dockerfile: .dockerFile
+    ports:
+      - "8090:8090"
+    depends_on:
+      - cassandra
+    networks:
+      - app-network
+    environment:
+      - CASSANDRA_HOST=cassandra
+
+  kafka:
+    image: faraayeesha/rtp-images-kafka
+    ports:
+      - "9092:9092"
+      - "9093:9093"
+    networks:
+      - app-network
+
+  nifi:
+    image: apache/nifi:latest
+    ports:
+      - "8443:8443"
+    environment:
+      - NIFI_WEB_HTTP_HOST=0.0.0.0
+      - NIFI_WEB_HTTP_PORT=8443
+      - NIFI_SENSITIVE_PROPS_KEY=This1s@LongEnoughKey123
+      - SINGLE_USER_CREDENTIALS_USERNAME=admin
+      - SINGLE_USER_CREDENTIALS_PASSWORD=adminpassword
+      - NIFI_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+    volumes:
+      - nifi_data:/opt/nifi/nifi-current/conf
+    networks:
+      - app-network
+
+  spark:
+    image: faraayeesha/rtp-images-spark
+    depends_on:
+      - kafka
+      - cassandra
+    environment:
+      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+    networks:
+      - app-network
+    ports:
+      - "4040:4040"
+
+  cassandra:
+    image: cassandra:latest
+    ports:
+      - "9042:9042"
+    environment:
+      - CASSANDRA_CLUSTER_NAME=MyCluster
+      - CASSANDRA_ENDPOINT_SNITCH=SimpleSnitch
+      - CASSANDRA_DC=datacenter1
+    volumes:
+      - cassandra_data:/var/lib/cassandra
+    networks:
+      - app-network
+
+  mysql:
+    image: mysql:latest
+    ports:
+      - "3307:3307"
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_ALLOW_EMPTY_PASSWORD: true
+      MYSQL_USER: sa
+      MYSQL_PASSWORD: password
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  nifi_data:
+  cassandra_data:
+  kafka_data:

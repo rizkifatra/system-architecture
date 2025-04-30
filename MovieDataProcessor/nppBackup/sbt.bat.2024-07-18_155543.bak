@@ -1,0 +1,3 @@
+   @echo off
+   set JAVA_OPTS=-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled
+   java %JAVA_OPTS% -jar "%~dp0sbt-launch.jar" %*

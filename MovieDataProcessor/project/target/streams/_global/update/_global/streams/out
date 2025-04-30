@@ -1,0 +1,22 @@
+[debug] not up to date. inChanged = true, force = false
+[debug] Updating ProjectRef(uri("file:/C:/Users/xxfar/Downloads/RTP_Project/MovieDataProcessor/project/"), "moviedataprocessor-build")...
+[error] java.nio.file.AccessDeniedException: C:\Users\xxfar\AppData\Local\Coursier\Cache\v1\https\repo.scala-sbt.org\scalasbt\sbt-plugin-releases\com.eed3si9n\sbt-assembly\scala_2.12\sbt_1.0\0.15.0\ivys\.ivy.xml__sha1
+[error] 	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:89)
+[error] 	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+[error] 	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+[error] 	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:236)
+[error] 	at java.base/java.nio.file.Files.newByteChannel(Files.java:380)
+[error] 	at java.base/java.nio.file.Files.newByteChannel(Files.java:432)
+[error] 	at java.base/java.nio.file.Files.readAllBytes(Files.java:3288)
+[error] 	at lmcoursier.internal.shaded.coursier.cache.FileCache.$anonfun$validateChecksum$4(FileCache.scala:119)
+[error] 	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:659)
+[error] 	at scala.util.Success.$anonfun$map$1(Try.scala:255)
+[error] 	at scala.util.Success.map(Try.scala:213)
+[error] 	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
+[error] 	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
+[error] 	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
+[error] 	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+[error] 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[error] 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[error] 	at java.base/java.lang.Thread.run(Thread.java:833)
+[error] (update) java.nio.file.AccessDeniedException: C:\Users\xxfar\AppData\Local\Coursier\Cache\v1\https\repo.scala-sbt.org\scalasbt\sbt-plugin-releases\com.eed3si9n\sbt-assembly\scala_2.12\sbt_1.0\0.15.0\ivys\.ivy.xml__sha1

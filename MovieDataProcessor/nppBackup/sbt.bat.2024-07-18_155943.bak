@@ -1,0 +1,3 @@
+   @echo off
+   set JAVA_OPTS=-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled
+   call C:\sbt-1.5.5\bin\sbt %*

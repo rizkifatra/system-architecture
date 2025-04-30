@@ -1,0 +1,3 @@
+   -Dsbt.boot.directory=C:/sbt-boot
+   -Dsbt.ivy.home=C:/ivy2
+   -Dsbt.global.base=C:/sbt

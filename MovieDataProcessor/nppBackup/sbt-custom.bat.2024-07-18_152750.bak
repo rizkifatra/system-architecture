@@ -1,0 +1,4 @@
+   @echo off
+   set JAVA_OPTS=-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled
+   set SBT_OPTS=-Dsbt.boot.directory=C:/sbt-boot -Dsbt.ivy.home=C:/ivy2 -Dsbt.global.base=C:/sbt
+   C:\sbt-1.5.5\bin\sbt %*

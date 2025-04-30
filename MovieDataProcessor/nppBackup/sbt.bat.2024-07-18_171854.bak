@@ -1,0 +1,2 @@
+@echo off
+java -Xmx1024M -Xss2M -jar "%~dp0sbt-launch.jar" %*

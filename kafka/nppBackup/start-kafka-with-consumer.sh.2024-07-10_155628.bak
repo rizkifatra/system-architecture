@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Start Kafka in the background
+/usr/bin/start-kafka.sh &
+
+# Wait for Kafka to be ready
+sleep 10
+
+# Start the console consumer
+${KAFKA_HOME}/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic movies --from-beginning

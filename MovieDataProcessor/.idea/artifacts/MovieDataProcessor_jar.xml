@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MovieDataProcessor:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/MovieDataProcessor_jar</output-path>
+    <root id="archive" name="MovieDataProcessor.jar">
+      <element id="module-output" name="MovieDataProcessor" />
+      <element id="module-output" name="MovieDataProcessor.MovieDataProcessor-build" />
+      <element id="library" level="project" name="sbt: scala-sdk-2.12.15" />
+      <element id="extracted-dir" path="$USER_HOME$/.sbt/boot/scala-2.12.15/lib/scala-library.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

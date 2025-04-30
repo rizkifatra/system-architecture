@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Start Kafka in the background
+/usr/bin/start-kafka.sh &
+
+# Wait for Kafka to be ready
+sleep 10
+
+# Create the 'movies' topic if it doesn't exist
+${KAFKA_HOME}/bin/kafka-topics.sh --create --if-not-exists --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic movies
+
+# Start the console consumer
+${KAFKA_HOME}/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic movies --from-beginning
