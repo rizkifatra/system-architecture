@@ -1,24 +1,8 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/vaXpkLzu)
-## Requirements for Group Project
-[Read the instruction](https://github.com/STIW3054-A232/class-activity-stiw3054/blob/main/GroupProject.md)
 
-## Group Info:
-| MATRIC NUMBER | NAME                           | PHONE NUMBER |
-   |---------------|--------------------------------|--------------|
-   | 286941        | FARA AYEESHA BINTI AHMAD YUSNI | +60 14-276 2634   |
-   | 284172        | HASYA AULIA FITRI              | +60 14-742 4635 |
-   | 290267        | SALSABILA SHAFA KHAIRUNISA     | +60 11-2340 6446 |
-   | 285884        | MUHAMMAD HAFIZ BIN ABD RAHIM   | +60 11-1490 1703  |
-   | 290911        | MUHAMMAD RIZKI FATRA     | +60 16-250 8620  |
 
-1. Mention who is the leader.
 
-   LEADER: FARA AYEESHA BINTI AHMAD YUSNI
-1. Other related info (if any)
+## MovieBaze – Real-Time Movie Data Processing System
 
-## Title of your application (a unique title)
-
-   MovieBaze
 ## Abstract (in 300 words)
    1. Background
 
@@ -104,78 +88,8 @@ In our real-time data processing system, we have multiple components interacting
       - docker compose up --build
       
    
-## User manual for installing your application on AWS (Bonus 5%)
 ## Result/Output (Screenshot of the output)
 <img src="images\outputtele.jpeg" width="100%" height="100%">
-
-## References (Not less than 20)
-
-   Adji, L. S. A., & Mailoa, E. (2024). Pembuatan REST API manajemen data karyawan berbasis website menggunakan Spring Boot. Jurnal Indonesia, 5(2), 1543–1552. https://doi.org/10.35870/jimik.v5i2.713
-
-   Apache SparkTM - Unified Engine for large-scale data analytics. (n.d.). https://spark.apache.org/
-   
-   Apache NiFi. (n.d.). Apache NiFi. https://nifi.apache.org/
-
-   Apache Cassandra | Apache Cassandra Documentation. (n.d.). Apache Cassandra. https://cassandra.apache.org/_/index.html
-
-   Beridzeg, G. (2023). All movies on IMDb. Kaggle. https://www.kaggle.com/datasets/beridzeg45/all-movies-on-imdb/data
-   
-   Chintapalli, S., Dagit, D., Evans, B., Farivar, R., Graves, T., Holderbaugh, M., ... & Zhang, Z. (2016, December). Benchmarking streaming computation engines: Storm, Flink and Spark Streaming. In 2016 IEEE international parallel and distributed processing symposium workshops (IPDPSW) (pp. 1789-1792). IEEE.
-   
-   Dean, J., & Ghemawat, S. (2008). MapReduce: simplified data processing on large clusters. Communications of the ACM, 51(1), 107-113.
-   
-   Grolinger, K., L'Heureux, A., Capretz, M. A., & Seewald, L. (2016). Energy forecasting for event venues: Big data and prediction accuracy. Energy and Buildings, 112, 222-233.
-   
-   Kreps, J., Narkhede, N., & Rao, J. (2011, June). Kafka: A distributed messaging system for log processing. In Proceedings of the NetDB (Vol. 11, pp. 1-7).
-
-   Kozak, M. (2023). Analysis of the Spring Boot and Spring Cloud in developing Java cloud applications. Journal of Computer Sciences Institute, 27, 112–120. https://doi.org/10.35784/jcsi.3130
-
-   Khaerunnisa, A., Rosadi, D., Supriatna, H., & Latif, D. (2024). Fullstack implementation using Angular Framework and SpringBoot in the Participant Admission Information System New Education (PPDB) (RA DAARUN Case Study - NISAA). Bisnis Dan Iptek/Bisnis Dan Iptek, 17(1), 97–105. https://doi.org/10.55208/bistek.v17i1.580
-   
-   Maarala, A. I., Rautiainen, M., Salmi, A., Bassett, G., Jokela, J., & Ahtiainen, A. (2017). Robust detection of periodic and anomalous patterns in building energy consumption data. Energy and Buildings, 149, 1-13.
-
-   MySQL :: MySQL Documentation. (n.d.). https://dev.mysql.com/doc/
-   
-   Maiwald, S., Mann, L., Garcia, S., & Heitkam, T. (2024). Evolving together: Cassandra Retrotransposons gradually mirror promoter mutations of the 5S RRNA genes. Molecular Biology and Evolution, 41(2). https://doi.org/10.1093/molbev/msae010
-
-   Nufusula, R., & Susanto, A. (2018). Rancang bangun chat bot pada server pulsa mengunakan Telegram Bot API. DOAJ (DOAJ: Directory of Open Access Journals). https://doaj.org/article/af617cfea00743f4bc99e6a002ce6f27
-
-   Pandya, A., Kostakos, P., Mehmood, H., Cortes, M., Gilman, E., Oussalah, M., & Pirttikangas, S. (2019). Privacy preserving sentiment analysis on multiple edge data streams with Apache NiFi. (EISIC). https://doi.org/10.1109/eisic49498.2019.9108851
-
-   Septipalan, M. L., Widiartha, I. B. K., Zubaidi, A., & Taufik, M. (2024). Integrated notification system for smart parking security using Bot Telegram. Jurnal Penelitian Pendidikan IPA, 10(5), 2679–2686. https://doi.org/10.29303/jppipa.v10i5.7447
-
-   Setiaji, H., & Paputungan, I. V. (2018). Design of Telegram Bots for campus information sharing. IOP Conference Series. Materials Science and Engineering, 325, 012005. https://doi.org/10.1088/1757-899x/325/1/012005
-
-   Wnęk, K., & Boryło, P. (2023). A data processing and distribution system based on Apache NIFI. Photonics, 10(2), 210. https://doi.org/10.3390/photonics10020210
-
-   Wang, G., Koshy, J., Subramanian, S., Paramasivam, K., Zadeh, M., Narkhede, N., Rao, J., Kreps, J., & Stein, J. (2015). Building a replicated logging system with Apache Kafka. Proceedings of the VLDB Endowment, 8(12), 1654–1655. https://doi.org/10.14778/2824032.2824063
-
-   Zaharia, M., Chowdhury, M., Franklin, M. J., Shenker, S., & Stoica, I. (2010, April). Spark: Cluster computing with working sets. In HotCloud (Vol. 10, No. 10-10, p. 95).
-
-
-## Youtube Presentation (10%)
-https://youtu.be/LN8FHcOBl-Q
-
-YOUTUBE LINK BY SECTION/MINUTES :
-
-- Docker : https://youtu.be/LN8FHcOBl-Q?si=TAmkq3fRI6-6kTRG&t=51
-
-- Angular : https://youtu.be/LN8FHcOBl-Q?si=KtAsJbyxa5Y8U5BR&t=368
-
-- MySQL : https://youtu.be/LN8FHcOBl-Q?si=Eukpr8rBnz2XrXad&t=560
-
-- Springboot : https://youtu.be/LN8FHcOBl-Q?si=U6wPIpsCe_KjmHYT&t=644
-
-- Nifi : https://youtu.be/LN8FHcOBl-Q?si=Shb5pjXpzgw3vi_C&t=797
-
-- Kafka : https://youtu.be/LN8FHcOBl-Q?si=OV43x10Ps2UqnQFp&t=1078
-
-- Spark Cassandra : https://youtu.be/LN8FHcOBl-Q?si=pH0CNqnBTjLfD5Ew&t=1117
-
-- Telegram : https://youtu.be/LN8FHcOBl-Q?si=0ffppGeWDa_FX4NX&t=1302
-
-- Demonstration : https://youtu.be/LN8FHcOBl-Q?si=JvnVcomcX7V05Soq&t=1458
-
 
 ## Link for the Dataset
 https://drive.google.com/drive/folders/1fEWkzcUKRF5fJXXmur6JMKe4anwdJIv0?usp=sharing
